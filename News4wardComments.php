@@ -63,6 +63,25 @@ class News4wardComments extends Comments
 
 		return $strContent.$tpl->parse();
 	}
+
+	/**
+	 * Check if the user is allowed to handle the comments
+	 *
+	 * @param $intParent id of the parent element
+	 * @param $strSource comment source
+	 * @return bool
+	 */
+	public function isAllowedToEditComment($intParent, $strSource)
+	{
+		if($strSource != 'tl_news4ward_article') return;
+
+		$this->import('BackendUser','User');
+
+		$objNews4wardArticle = $this->Database->prepare('SELECT pid FROM tl_news4ward_article WHERE id=?')->execute($intParent);
+		if(!$objNews4wardArticle->numRows) return;
+
+		return (is_array($this->User->news4ward) && in_array($objNews4wardArticle->pid,$this->User->news4ward));
+	}
 }
 
 ?>

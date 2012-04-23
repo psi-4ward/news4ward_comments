@@ -14,4 +14,6 @@
 
 $GLOBALS['TL_HOOKS']['News4wardReader'][] = array('News4wardComments','insertContent');
 
+
+$GLOBALS['TL_HOOKS']['isAllowedToEditComment'][] = array('News4wardComments','isAllowedToEditComment');
 ?>
