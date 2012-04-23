@@ -83,10 +83,40 @@ $GLOBALS['TL_DCA']['tl_news4ward']['fields']['disableCaptcha'] = array
 	'inputType'               => 'checkbox',
 	'eval'                    => array('tl_class'=>'w50')
 );
+$GLOBALS['TL_DCA']['tl_news4ward']['fields']['com_template'] = array
+(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_news4ward']['com_template'],
+	'default'                 => 'com_default',
+	'exclude'                 => true,
+	'inputType'               => 'select',
+	'options_callback'        => array('tl_news4ward_comments', 'getCommentsTemplates'),
+	'eval'                    => array('tl_class'=>'w50')
+
+);
 
 
 // alter the palettes
-$GLOBALS['TL_DCA']['tl_news4ward']['subpalettes']['allowComments'] = 'notify,sortOrder,perPage,moderate,bbcode,requireLogin,disableCaptcha';
+$GLOBALS['TL_DCA']['tl_news4ward']['subpalettes']['allowComments'] = 'notify,sortOrder,perPage,moderate,bbcode,requireLogin,disableCaptcha,com_template';
 $GLOBALS['TL_DCA']['tl_news4ward']['palettes']['default'] = str_replace(';{protected',';{comments_legend:hide},allowComments;{protected',$GLOBALS['TL_DCA']['tl_news4ward']['palettes']['default']);
+
+
+/**
+ * Class tl_news4ward_comments
+ * @package    news4ward_comments
+ */
+class tl_news4ward_comments extends Backend
+{
+
+	/**
+	 * Return all comments templates as array
+	 * @param DataContainer
+	 * @return array
+	 */
+	public function getCommentsTemplates(DataContainer $dc)
+	{
+		// Return all gallery templates
+		return $this->getTemplateGroup('com_');
+	}
+}
 
 ?>

@@ -24,6 +24,7 @@ $GLOBALS['TL_LANG']['tl_news4ward']['moderate']       = array('Kommentare moderi
 $GLOBALS['TL_LANG']['tl_news4ward']['bbcode']         = array('BBCode erlauben', 'Besuchern das Formatieren ihrer Kommentare mittels BBCode erlauben.');
 $GLOBALS['TL_LANG']['tl_news4ward']['requireLogin']   = array('Login zum Kommentieren benötigt', 'Nur angemeldeten Benutzern das Erstellen von Kommentaren erlauben.');
 $GLOBALS['TL_LANG']['tl_news4ward']['disableCaptcha'] = array('Sicherheitsfrage deaktivieren', 'Wählen Sie diese Option nur, wenn das Erstellen von Kommentaren auf authentifizierte Benutzer beschränkt ist.');
+$GLOBALS['TL_LANG']['tl_news4ward']['com_template']   = array('Kommentar-Template', 'Hier können Sie ein Template für die Kommentare wählen.');
 
 /**
  * Legends

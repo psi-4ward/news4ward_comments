@@ -53,7 +53,7 @@ class News4wardComments extends Comments
 
 		$objConfig->perPage = $objArchive->perPage;
 		$objConfig->order = $objArchive->sortOrder;
-		$objConfig->template = $this->com_template;
+		$objConfig->template = $objArchive->com_template;
 		$objConfig->requireLogin = $objArchive->requireLogin;
 		$objConfig->disableCaptcha = $objArchive->disableCaptcha;
 		$objConfig->bbcode = $objArchive->bbcode;

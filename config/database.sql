@@ -19,7 +19,8 @@ CREATE TABLE `tl_news4ward` (
   `moderate` char(1) NOT NULL default '',
   `bbcode` char(1) NOT NULL default '',
   `requireLogin` char(1) NOT NULL default '',
-  `disableCaptcha` char(1) NOT NULL default ''
+  `disableCaptcha` char(1) NOT NULL default '',
+  `com_template` varchar(32) NOT NULL default ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
