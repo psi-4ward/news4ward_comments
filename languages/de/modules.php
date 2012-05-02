@@ -12,6 +12,6 @@
  */
 
 // FE-Modules
-$GLOBALS['TL_LANG']['FMD']['News4wardComments']    = array('Kommentare', 'Ermöglicht das Anzeigen und Abgeben von Kommentaren zu einem Beitrag.');
+$GLOBALS['TL_LANG']['FMD']['news4wardComments']    = array('Kommentare', 'Ermöglicht das Anzeigen und Abgeben von Kommentaren zu einem Beitrag.');
 
 ?>

@@ -15,6 +15,6 @@
 $GLOBALS['TL_HOOKS']['isAllowedToEditComment'][] = array('News4wardComments','isAllowedToEditComment');
 
 // Front end modules
-$GLOBALS['FE_MOD']['news4ward']['News4wardComments'] = 'ModuleNews4wardComments';
+$GLOBALS['FE_MOD']['news4ward']['news4wardComments'] = 'ModuleNews4wardComments';
 
 ?>
