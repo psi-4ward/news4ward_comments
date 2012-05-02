@@ -1,3 +1,5 @@
+<!-- indexer::stop -->
+
 <div class="ce_comments block">
 
 <h1><?php echo $this->addComment; ?></h1>
@@ -5,7 +7,6 @@
 <?php echo $this->pagination; ?>
 <?php if (!$this->requireLogin): ?>
 
-<!-- indexer::stop -->
 <div class="form">
 <?php if ($this->confirm): ?>
 
@@ -51,7 +52,7 @@ try {
 <?php endif; ?>
 
 </div>
-<!-- indexer::continue -->
 <?php endif; ?>
 
 </div>
+<!-- indexer::continue -->

@@ -11,10 +11,7 @@
  * @licence LGPL
  */
 
-// permissions
-$GLOBALS['TL_HOOKS']['isAllowedToEditComment'][] = array('News4wardComments','isAllowedToEditComment');
-
-// Front end modules
-$GLOBALS['FE_MOD']['news4ward']['News4wardComments'] = 'ModuleNews4wardComments';
+// FE-Modules
+$GLOBALS['TL_LANG']['FMD']['News4wardComments']    = array('Kommentare', 'Ermöglicht das Anzeigen und Abgeben von Kommentaren zu einem Beitrag.');
 
 ?>
