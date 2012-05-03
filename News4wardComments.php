@@ -33,6 +33,14 @@ class News4wardComments extends System
 
 		return (is_array($this->User->news4ward) && in_array($objNews4wardArticle->pid,$this->User->news4ward));
 	}
-}
 
-?>
+
+	public function addCommentsCount($obj,$objArticles,$objTemplate)
+	{
+		$this->import('Database');
+		$objComments = $this->Database->prepare('SELECT count(id) AS anz FROM tl_comments WHERE parent=? AND source="tl_news4ward_article"')
+							->execute($objArticles->id);
+		$objTemplate->commentCount = $objComments->anz;
+	}
+
+}

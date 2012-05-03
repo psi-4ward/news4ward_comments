@@ -17,4 +17,5 @@ $GLOBALS['TL_HOOKS']['isAllowedToEditComment'][] = array('News4wardComments','is
 // Front end modules
 $GLOBALS['FE_MOD']['news4ward']['news4wardComments'] = 'ModuleNews4wardComments';
 
-?>
+// News4wardParseArticle HOOK
+$GLOBALS['TL_HOOKS']['News4wardParseArticle'][] = array('News4wardComments','addCommentsCount');
