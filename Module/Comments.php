@@ -1,4 +1,4 @@
-<?php if(!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * News4ward
@@ -10,8 +10,10 @@
  * @filesource
  * @licence LGPL
  */
- 
-class ModuleNews4wardComments extends Module
+
+namespace Psi\News4ward\Module;
+
+class Comments extends \Module
 {
 
 	/**
@@ -25,7 +27,7 @@ class ModuleNews4wardComments extends Module
 	{
 		if (TL_MODE == 'BE')
 		{
-			$objTemplate = new BackendTemplate('be_wildcard');
+			$objTemplate = new \BackendTemplate('be_wildcard');
 
 			$objTemplate->wildcard = '### News4wardComments ###';
 			$objTemplate->title = $this->headline;
@@ -75,7 +77,7 @@ class ModuleNews4wardComments extends Module
 	protected function compile()
 	{
 
-		$this->import('Comments');
+		$this->import('\Comments','Comments');
 		$arrNotifies = array();
 
 		// Notify system administrator
@@ -97,7 +99,7 @@ class ModuleNews4wardComments extends Module
 			}
 		}
 
-		$objConfig = new stdClass();
+		$objConfig = new \stdClass();
 
 		$objConfig->perPage = $this->objArchive->perPage;
 		$objConfig->order = $this->objArchive->sortOrder;

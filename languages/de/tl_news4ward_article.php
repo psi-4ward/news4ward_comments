@@ -1,4 +1,4 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * News4ward
@@ -12,5 +12,4 @@
  */
 
 $GLOBALS['TL_LANG']['tl_news4ward_article']['noComments']  = array('Kommentare deaktivieren','Für diesen Beitrag wird die Kommentarfunktion ausgeschalten.');
-$GLOBALS['TL_LANG']['tl_news4ward_article']['commentsButton'] = array('Kommentare anzeigen','Zeigt die Kommentare für den Artikel ID %s an.')
-?>
+$GLOBALS['TL_LANG']['tl_news4ward_article']['commentsButton'] = array('Kommentare anzeigen','Zeigt die Kommentare für den Artikel ID %s an.');

@@ -1,4 +1,4 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * News4ward
@@ -30,7 +30,7 @@ array_insert($GLOBALS['TL_DCA']['tl_news4ward_article']['list']['operations'],1,
 	(
 		'label'               => &$GLOBALS['TL_LANG']['tl_news4ward_article']['commentsButton'],
 		'href'                => 'key=showComments',
-		'icon'                => 'system/modules/comments/html/icon.gif',
+		'icon'                => 'system/modules/comments/assets/icon.gif',
 		'button_callback'     => array('tl_news4ward_article_comments', 'showComments')
 	),
 ));
@@ -67,4 +67,3 @@ class tl_news4ward_article_comments extends Controller
 	}
 
 }
-?>

@@ -1,4 +1,4 @@
-<?php if(!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * News4ward
@@ -11,13 +11,15 @@
  * @licence LGPL
  */
 
-class News4wardComments extends System
+namespace Psi\News4ward;
+
+class CommentsHelper extends \System
 {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->import('Database');
+		$this->import('\Database','Database');
 	}
 
 	/**
@@ -38,7 +40,7 @@ class News4wardComments extends System
 
 		if ($objParent->numRows)
 		{
-			$this->import('News4wardHelper');
+			$this->import('\News4ward\Helper','News4wardHelper');
 			$title = ' (<a href="contao/main.php?do=news4ward&table=tl_news4ward_article&id=' . $objParent->id . '">' . $objParent->title . '</a>)';
 			$title .= ' (<a href="'.$this->News4wardHelper->generateUrl($objParent).'" target="_blank">'.$GLOBALS['TL_LANG']['tl_comments']['news4ward_FElink'].'</a>)';
 		}
@@ -58,7 +60,7 @@ class News4wardComments extends System
 	{
 		if($strSource != 'tl_news4ward_article') return;
 
-		$this->import('BackendUser','User');
+		$this->import('\BackendUser','User');
 
 		$objNews4wardArticle = $this->Database->prepare('SELECT pid FROM tl_news4ward_article WHERE id=?')->execute($intParent);
 		if(!$objNews4wardArticle->numRows) return;
