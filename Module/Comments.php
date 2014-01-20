@@ -91,7 +91,7 @@ class Comments extends \Module
 		{
 			$objAuthor = $this->Database->prepare("SELECT email FROM tl_user WHERE id=?")
 										->limit(1)
-										->execute($this->objArchive->->authorID);
+										->execute($this->objArchive->authorID);
 
 			if ($objAuthor->numRows)
 			{
