@@ -42,7 +42,7 @@ class CommentsHelper extends \System
 		{
 			$this->import('\News4ward\Helper','News4wardHelper');
 			$title = ' (<a href="contao/main.php?do=news4ward&table=tl_news4ward_article&id=' . $objParent->id . '">' . $objParent->title . '</a>)';
-			$title .= ' (<a href="'.$this->News4wardHelper->generateUrl($objParent).'" target="_blank">'.$GLOBALS['TL_LANG']['tl_comments']['news4ward_FElink'].'</a>)';
+			$title .= ' (<a href="'.$this->News4wardHelper->generateUrl($objParent->row()).'" target="_blank">'.$GLOBALS['TL_LANG']['tl_comments']['news4ward_FElink'].'</a>)';
 		}
 
 		return $title;
