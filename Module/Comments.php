@@ -53,18 +53,19 @@ class Comments extends \Module
 
 		// fetch news4ward archive
 		$where = array();
+		$whereValues = array();
 		$time = time();
 		if(!BE_USER_LOGGED_IN)
 		{
 			$where[] = "(tl_news4ward_article.start='' OR tl_news4ward_article.start<".$time.") AND (tl_news4ward_article.stop='' OR tl_news4ward_article.stop>".$time.") AND tl_news4ward_article.status='published'";
 		}
-		$where[] = 'tl_news4ward_article.alias = "'.mysql_real_escape_string($this->alias).'"';
+		$where[] = 'tl_news4ward_article.alias = ?';
+		$whereValues[] = $this->alias;
 
-		$this->objArchive = $this->Database->execute('SELECT tl_news4ward.*, tl_news4ward_article.noComments, tl_news4ward_article.id as articleID, tl_news4ward_article.author as authorID
+		$this->objArchive = $this->Database->prepare('SELECT tl_news4ward.*, tl_news4ward_article.noComments, tl_news4ward_article.id as articleID, tl_news4ward_article.author as authorID
 												FROM tl_news4ward_article
 												LEFT JOIN tl_news4ward ON (tl_news4ward_article.pid = tl_news4ward.id)
-												WHERE '.implode(' AND ',$where));
-
+												WHERE '.implode(' AND ',$where))->execute($whereValues);
 
 		if(!$this->objArchive->numRows) return '';
 
