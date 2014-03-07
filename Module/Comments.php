@@ -62,10 +62,14 @@ class Comments extends \Module
 		$where[] = 'tl_news4ward_article.alias = ?';
 		$whereValues[] = $this->alias;
 
-		$this->objArchive = $this->Database->prepare('SELECT tl_news4ward.*, tl_news4ward_article.noComments, tl_news4ward_article.id as articleID, tl_news4ward_article.author as authorID
-												FROM tl_news4ward_article
-												LEFT JOIN tl_news4ward ON (tl_news4ward_article.pid = tl_news4ward.id)
-												WHERE '.implode(' AND ',$where))->execute($whereValues);
+		$this->objArchive = $this->Database->prepare('
+		    SELECT tl_news4ward.*, tl_news4ward_article.noComments, tl_news4ward_article.id as articleID,
+		        tl_news4ward_article.author as authorID, tl_news4ward_article.title as articleTitle,
+		        tl_news4ward_article.alias as articleAlias
+			FROM tl_news4ward_article
+			LEFT JOIN tl_news4ward ON (tl_news4ward_article.pid = tl_news4ward.id)
+			WHERE '.implode(' AND ',$where)
+        )->execute($whereValues);
 
 		if(!$this->objArchive->numRows) return '';
 
@@ -99,6 +103,9 @@ class Comments extends \Module
 				$arrNotifies[] = $objAuthor->email;
 			}
 		}
+
+        $this->Template->articleTitle = $this->objArchive->articleTitle;
+        $this->Template->articleAlias = $this->objArchive->articleAlias;
 
 		$objConfig = new \stdClass();
 
