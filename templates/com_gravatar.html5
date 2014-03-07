@@ -1,21 +1,28 @@
-
 <div class="comment_default<?php echo $this->class; ?>" id="<?php echo $this->id; ?>">
 
-<p class="info">
-	<img src="http://www.gravatar.com/avatar/<?php echo md5(trim($this->email));?>?s=50&d=mm" alt="" style="float:right;margin-left: 10px;"/>
-	<?php echo $this->by; ?> <?php if ($this->website): ?><a href="<?php echo $this->website; ?>" rel="nofollow"<?php echo LINK_NEW_WINDOW; ?>><?php endif; echo $this->name; ?><?php if ($this->website): ?></a><?php endif; ?>
-	<br />
-	<span class="date"> <?php echo $this->date; ?></span>
-</p>
-<div class="comment">
-<?php echo $this->comment; ?> 
-</div>
-<?php if ($this->addReply): ?>
-<div class="reply">
-<p class="info"><?php echo $this->rby; ?> <?php echo $this->authorName; ?></p>
-<div class="comment">
-<?php echo $this->reply; ?> 
-</div>
-</div>
-<?php endif; ?>
+    <p class="info">
+        <img src="http://www.gravatar.com/avatar/<?php echo md5(trim($this->email)); ?>?s=50&d=mm" alt="" style="float:right;margin-left: 10px;">
+        <?php echo $this->by; ?> <?php if ($this->website): ?>
+        <a href="<?php echo $this->website; ?>" rel="nofollow"<?php echo LINK_NEW_WINDOW; ?>><?php endif;
+        echo $this->name; ?><?php if ($this->website): ?></a><?php endif; ?>
+        <br>
+        <span class="date"> <?php echo $this->date; ?></span>
+    </p>
+
+    <div class="comment">
+        <?php echo $this->comment; ?>
+    </div>
+
+    <?php if($this->addReply): ?>
+        <div class="reply">
+            <p class="info">
+                <img src="http://www.gravatar.com/avatar/<?php echo md5(trim($this->author->email)); ?>?s=50&d=mm" alt="" style="float:right;margin-left: 10px;">
+                <?php echo $this->rby; ?> <?php echo $this->authorName; ?>
+            </p>
+
+            <div class="comment">
+                <?php echo $this->reply; ?>
+            </div>
+        </div>
+    <?php endif; ?>
 </div>
