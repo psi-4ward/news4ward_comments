@@ -17,7 +17,7 @@
         <div class="reply">
             <p class="info">
                 <img src="http://www.gravatar.com/avatar/<?php echo md5(trim($this->author->email)); ?>?s=50&d=mm" alt="" style="float:right;margin-left: 10px;">
-                <?php echo $this->rby; ?> <?php echo $this->authorName; ?>
+                <?php echo $this->rby; ?> <?php echo $this->author->name; ?>
             </p>
 
             <div class="comment">
