@@ -69,10 +69,10 @@ class CommentsHelper extends \System
 	}
 
 
-	public function addCommentsCount($obj,$objArticles,$objTemplate)
+	public function addCommentsCount($obj, $arrArticle, $objTemplate)
 	{
 		$objComments = $this->Database->prepare('SELECT count(id) AS anz FROM tl_comments WHERE parent=? AND source="tl_news4ward_article"')
-							->execute($objArticles->id);
+							->execute($arrArticle['id']);
 		$objTemplate->commentCount = $objComments->anz;
 	}
 
